@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1 {
+      font-size: 35px;
+    }
+
+    .imgs {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      align-self: center;
+
+    }
+
+    .imgs img {
+      border: 15px double black;
+      width: 70%;
+      height: 75%;
+      box-shadow: 2px 2px 10px gray;
+    }
+
+    input{
+      width: 98%;
+      font-size: 35px;
+      text-align: center;
+      border: 5px solid black;
+    }
+    .imgs img:hover
+    {
+      border-color: turquoise;
+    }
+button{
+  color:white;
+  background: rgb(106, 106, 245);
+  font-size: 35px;
+  border: none;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 20px;
+}
+    @media screen and (max-width:500px) {
+      h1 {
+      font-size: 25px;
+    }
+      .imgs {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      align-self: center;
+
+    }
+
+      .imgs img {
+      border: 7px double black;
+
+        width: 90%;
+      height: 80%;
+      }
+      input{
+      font-size: 25px;
+      border: 2.5px solid black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1>Choose your design </h1>
+    <div class="imgs">
+      <img src="cert/1.png" onclick="setCert('1')">
+      <img src="cert/2.png"onclick="setCert('2')">
+      <img src="cert/3.png"onclick="setCert('3')">
+      <img src="cert/4.png"onclick="setCert('4')">
+      <img src="cert/5.png"onclick="setCert('5')">
+    </div>
+    <hr color="black">
+    <h1>Enter participant's name </h1>
+    <input id="inp" type="text" onkeyup="setName()">
+    <br><br>
+    <button onclick="generate()">
+      Generate
+    </button>
+  </center>
+</body>
+<script>
+  function setCert(i){
+    localStorage.setItem("CertInd",i);
+  }
+  function setName(){
+    n = document.getElementById("inp").value;
+    localStorage.setItem("Naambolo",n);
+  }
+  function generate(){
+    window.open("cert.html","blank")
+  }
+</script>
+</html>
